@@ -1,0 +1,88 @@
+title: VMs running Podman containers as a systemd service
+description: invaders must die.
+informationalText: Fuck russia.
+schemaVersion: 1.1.0
+version: "20220508"
+locale: "en"
+
+variableGroups:
+  - title: "Hidden Variable Group"
+    visible: false
+    variables:
+      - tenancy_ocid
+      - region
+      - compartment_ocid
+
+variables:
+
+######################################################
+##############    HIDDEN VARIABLES       #############
+######################################################
+
+  tenancy_ocid:
+    title: Tenancy ID
+    description: The Oracle Cloud Identifier (OCID) for your tenancy
+    type: string
+    required: true
+
+  region:
+    title: Region
+    description: The region in which to create all resources
+    type: oci:identity:region:name
+    required: true
+
+  compartment_ocid:
+    title: Target Compartment
+    description: The target compartment for all of the provisioned resources
+    type: oci:identity:compartment:id
+    required: true
+
+######################################################
+##############    COMPUTE VARIABLES      #############
+######################################################
+
+  ssh_public_key:
+    title: SSH Public Key
+    description: Public SSH Key to access VM via SSH
+    type: oci:core:ssh:publickey
+
+  instance_shape:
+    title: Compute Shape
+    type: oci:core:instanceshape:name
+    default: VM.Standard.E2.1.Micro
+    required: true
+    dependsOn:
+      compartmentId: compartment_ocid
+
+  instance_count:
+    title: Instance count
+    description: Number of instances to launch
+    type: number
+    default: 2
+    required: true
+
+  container_image:
+    title: Container image
+    description: The full name for a container image
+    type: string
+    required: true
+
+  container_image_args:
+    title: Container image arguments
+    description: Command and arguments for a container image
+    type: string
+
+#############################################
+##############     OUTPUTS     ##############
+#############################################
+
+outputs:
+  instances_public_ips:
+    type: map
+    title: Public IPs
+    displayText: Use this IPs to login to instances via SSH
+
+  ssh_private_key:
+    title: Generated Private Key for SSH Access
+    description: The private SSH key for the key-pair that you want to use
+    sensitive: true
