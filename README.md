@@ -54,7 +54,7 @@ Or use a full command without adding hosts to ssh config: `ssh opc@140.238.221.1
 
 The following examples use `mhddos_proxy` as a container name, replace it with appropriate name for other containers.
 
-NOTE: execute all the below commands as root (do `sudo -i` after ssh login). <Tab> key autocompletion works fine there, use it!
+NOTE: execute all the below commands as root (do `sudo -i` after ssh login). *Tab* key autocompletion works fine there, use it!
 
 ### Container start/stop management via systemd
 
@@ -122,6 +122,14 @@ podman attach mhddos_proxy
 ```
 
 NOTE: Detach with *ctrl-p,ctrl-q* key sequence; and: *ctrl-c* will stop the container.
+
+## Delete resources and the stack
+
+1. In [Oracle Cloud Console](https://cloud.oracle.com/), open the navigation menu and click **Developer Services**. Under **Resource Manager**, click **Stacks**. Alternatevely, you can get to **Stacks** by entering the word "stacks" in the search bar.
+1. Click on the stack name you need to remove.
+1. Click **Destroy** red button. Click **Destroy** blue button. This will shutdown and remove all the resources created by the stack.
+1. Once the above **destroy** job is finished, get back to the stack by clicking on **Stack Details** on top of the page.
+1. Click on **More Actions** and then on **Delete Stack**. Click **Delete** red button in the confirmation popup window.
 
 ## Possible improvements & ideas
 
