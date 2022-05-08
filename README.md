@@ -19,7 +19,7 @@ Podman is installed on the VMs from cloud-init. Containers are managed by system
 
 ## Quickstart guide
 
-1. Download the [latest](releases/latest) release of this module in *zip* format.
+1. Download the [latest](../../releases/latest) release of this module in *zip* format.
 1. Create an account at [Oracle Cloud](https://signup.cloud.oracle.com/) - you'll need a valid CC with $1 for verification.
 1. In [Oracle Cloud Console](https://cloud.oracle.com/), open the navigation menu and click **Developer Services**. Under **Resource Manager**, click **Stacks**. Alternatevely, you can get to **Stacks** by entering the word "stacks" in the search bar.
 1. Choose a compartment on the left side of the page ("root" compartment is OK). Click **Create Stack**.
