@@ -68,6 +68,11 @@ resource "oci_core_security_list" "security_list" {
     destination = "0.0.0.0/0"
   }
 
+  egress_security_rules {
+    protocol    = "17"
+    destination = "0.0.0.0/0"
+  }
+
   ingress_security_rules {
     protocol = "6"
     source   = "0.0.0.0/0"
