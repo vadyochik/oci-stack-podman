@@ -2,7 +2,11 @@
 
 # Skip updates as it may take too long..
 # dnf -y upgrade
-dnf -y install podman
+
+# No need in locate db and its heavy updatedb process
+dnf -y remove mlocate
+
+dnf -y install podman tmux
 
 IMAGE="${image}"
 ARGS="${args}"
