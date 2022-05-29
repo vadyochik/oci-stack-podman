@@ -80,6 +80,8 @@ systemctl disable container-mhddos_proxy.service
 systemctl enable container-mhddos_proxy.service
 ```
 
+NOTE: because of `--pull=always` option, when you restart the systemd service if there is a newer image available, it will be automatically pulled. So when you need to run the latest image, just restart the systemd service.
+
 ### Container status
 
 Systemd service status and logs:
@@ -122,6 +124,12 @@ podman attach mhddos_proxy
 ```
 
 NOTE: Detach with *ctrl-p,ctrl-q* key sequence; and: *ctrl-c* will stop the container.
+
+Get interactive shell inside the running container:
+
+```
+podman exec -it mhddos_proxy /bin/sh
+```
 
 ## Delete resources and the stack
 
