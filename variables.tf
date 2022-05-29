@@ -26,5 +26,5 @@ variable "container_image" {
 }
 
 variable "container_image_args" {
-  default = "-t 1000 --itarmy --debug --vpn"
+  default = "-t 2000 --itarmy --debug --vpn"
 }
